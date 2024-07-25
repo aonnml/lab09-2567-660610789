@@ -17,6 +17,9 @@ export default function Task({
   completed,
 }: TaskItemProps) {
   // callback function when delete button is clicked
+  const doneBtnOnclick = () => {
+    toggleDoneTaskFunc(id);
+  };
   const deleteBtnOnClick = () => {
     deleteTaskFunc(id);
   };
@@ -29,8 +32,8 @@ export default function Task({
         But if task is not completed : 
         <span>{title}</span>
       */}
-      <span>{title}</span>
-      <button className="btn btn-success">Done</button>
+      <span className={completed ? 'text-decoration-line-through' : ''}>{title}</span>
+      <button className="btn btn-success" onClick={doneBtnOnclick}>Done</button>
       <button className="btn btn-danger" onClick={deleteBtnOnClick}>
         Delete
       </button>
