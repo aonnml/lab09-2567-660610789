@@ -12,7 +12,7 @@ export default function Home() {
   // Define the interface of task-item object
   interface TaskItem {
     // your code here
-    id : string;
+    id : any;
     title : string;
     completed : boolean;
   }
@@ -21,20 +21,20 @@ export default function Home() {
   const [tasks, setTasks] = useState<TaskItem[]>([]);
 
   // Define the function with proper type
-  const addTask = (newTaskTitle) => {
+  const addTask = (newTaskTitle: any) => {
     const newTask = { id: nanoid(), title: newTaskTitle, completed: false };
     const newTasks = [...tasks, newTask];
     setTasks(newTasks);
   };
 
   // Define the function with proper type
-  const deleteTask = (taskId) => {
+  const deleteTask = (taskId: any) => {
     const newTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(newTasks);
   };
 
   // Define the function with proper type
-  const toggleDoneTask = (taskId) => {
+  const toggleDoneTask = (taskId: any) => {
     //structuredClone will copy an array or an object "deeply"
     //So objects within an object will be copied too
     const newTasks = structuredClone(tasks);
