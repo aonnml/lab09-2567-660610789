@@ -12,7 +12,7 @@ export default function Home() {
   // Define the interface of task-item object
   interface TaskItem {
     // your code here
-    id : any;
+    id : string;
     title : string;
     completed : boolean;
   }
@@ -21,7 +21,7 @@ export default function Home() {
   const [tasks, setTasks] = useState<TaskItem[]>([]);
 
   // Define the function with proper type
-  const addTask = (newTaskTitle: any) => {
+  const addTask = (newTaskTitle : string) => {
     const newTask = { id: nanoid(), title: newTaskTitle, completed: false };
     const newTasks = [...tasks, newTask];
     setTasks(newTasks);
@@ -81,3 +81,6 @@ export default function Home() {
     </div>
   );
 }
+
+
+// npm i nanoid
